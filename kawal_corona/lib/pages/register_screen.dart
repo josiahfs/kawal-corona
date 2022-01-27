@@ -11,6 +11,7 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   // Initially password is obscure
   bool _obscureText = true;
+  bool _obscureText2 = true;
 
   late String _password;
 
@@ -18,6 +19,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void _toggle() {
     setState(() {
       _obscureText = !_obscureText;
+    });
+  }
+
+  // Toggles for re-type password form
+  void _toggle2() {
+    setState(() {
+      _obscureText2 = !_obscureText2;
     });
   }
 
@@ -72,38 +80,42 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: const InputDecoration(
                     labelText: 'Username or email',
                   ),
-                  validator: (val) =>
-                      val!.length < 6 ? 'Password too short.' : null,
-                  onSaved: (val) => _password = val!,
-                  obscureText: _obscureText,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: TextFormField(
-                  decoration: const InputDecoration(
-                      labelText: 'Password',
-                      icon: const Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
-                          child: const Icon(Icons.lock))),
+                  obscureText: _obscureText,
+                  decoration: InputDecoration(
+                    suffixIcon: InkWell(
+                      onTap: _toggle,
+                      child: Icon(_obscureText
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                    ),
+                    labelText: 'Password',
+                  ),
                   validator: (val) =>
                       val!.length < 6 ? 'Password too short.' : null,
                   onSaved: (val) => _password = val!,
-                  obscureText: _obscureText,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: TextFormField(
-                  decoration: const InputDecoration(
-                      labelText: 'Re-type password',
-                      icon: const Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
-                          child: const Icon(Icons.lock))),
+                  obscureText: _obscureText2,
+                  decoration: InputDecoration(
+                    suffixIcon: InkWell(
+                      onTap: _toggle2,
+                      child: Icon(_obscureText2
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                    ),
+                    labelText: 'Re-type password',
+                  ),
                   validator: (val) =>
                       val!.length < 6 ? 'Password too short.' : null,
                   onSaved: (val) => _password = val!,
-                  obscureText: _obscureText,
                 ),
               ),
               Spacer(),

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kawal_corona/pages/login_screen.dart';
+import 'package:kawal_corona/pages/register_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -11,6 +11,8 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        top: false,
+        bottom: false,
         child: Stack(
           children: [
             Column(
@@ -18,12 +20,12 @@ class SplashScreen extends StatelessWidget {
                 Image.asset(
                   'assets/images/splash.png',
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.63,
+                  height: MediaQuery.of(context).size.height * 0.60,
                   fit: BoxFit.cover,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.33,
+                  height: MediaQuery.of(context).size.height * 0.2,
                   color: Color(0xffCFE3FC),
                 )
               ],
@@ -31,11 +33,11 @@ class SplashScreen extends StatelessWidget {
             Column(
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.63,
+                  height: MediaQuery.of(context).size.height * 0.60,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.33,
+                  height: MediaQuery.of(context).size.height * 0.4,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(35),
@@ -72,7 +74,9 @@ class SplashScreen extends StatelessWidget {
                         ),
                         Spacer(),
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 12, right: 20),
+                          padding: const EdgeInsets.only(
+                            bottom: 25,
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
@@ -84,16 +88,20 @@ class SplashScreen extends StatelessWidget {
                               SizedBox(
                                 width: 20,
                               ),
-                              IconButton(
-                                iconSize: 50,
-                                icon: Image.asset(
-                                    'assets/images/splash_next.png'),
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => LoginScreen()));
-                                },
+                              Padding(
+                                padding: const EdgeInsets.only(right: 25),
+                                child: IconButton(
+                                  iconSize: 50,
+                                  icon: Image.asset(
+                                      'assets/images/splash_next.png'),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                RegisterScreen()));
+                                  },
+                                ),
                               )
                             ],
                           ),
