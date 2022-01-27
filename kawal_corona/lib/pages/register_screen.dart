@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kawal_corona/pages/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -125,7 +126,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   width: 220,
                   height: 51,
                   decoration: BoxDecoration(
-                      color: Color(0xffCFE3FC),
+                      color: Color(0xff157FFB),
                       borderRadius: BorderRadius.all(Radius.circular(30))),
                   child: Center(
                     child: Text(
@@ -133,7 +134,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       style: GoogleFonts.poppins(
                           fontSize: 20,
                           fontWeight: FontWeight.w400,
-                          color: Color(0xff0B4E90)),
+                          color: Color(0xffCFE3FC)),
                     ),
                   ),
                 ),
@@ -159,7 +160,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             fontWeight: FontWeight.w400,
                             color: Color(0xff0B4E90)),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ));
+                      },
                     ),
                   ],
                 ),

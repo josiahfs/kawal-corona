@@ -124,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 220,
                     height: 51,
                     decoration: BoxDecoration(
-                        color: Color(0xffCFE3FC),
+                        color: Color(0xff157FFB),
                         borderRadius: BorderRadius.all(Radius.circular(30))),
                     child: Center(
                       child: Text(
@@ -132,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: GoogleFonts.poppins(
                             fontSize: 20,
                             fontWeight: FontWeight.w400,
-                            color: Color(0xff0B4E90)),
+                            color: Color(0xffCFE3FC)),
                       ),
                     ),
                   ),
