@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   // Initially password is obscure
   bool _obscureText = true;
 
@@ -49,7 +49,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 height: 43,
               ),
               Text(
-                'Register',
+                'Login',
                 style: GoogleFonts.poppins(
                     fontSize: 24,
                     fontWeight: FontWeight.w500,
@@ -72,86 +72,72 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: const InputDecoration(
                     labelText: 'Username or email',
                   ),
-                  validator: (val) =>
-                      val!.length < 6 ? 'Password too short.' : null,
-                  onSaved: (val) => _password = val!,
-                  obscureText: _obscureText,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: TextFormField(
-                  decoration: const InputDecoration(
-                      labelText: 'Password',
-                      icon: const Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
-                          child: const Icon(Icons.lock))),
+                  obscureText: _obscureText,
+                  decoration: InputDecoration(
+                    suffixIcon: InkWell(
+                      onTap: _toggle,
+                      child: Icon(_obscureText
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                    ),
+                    labelText: 'Password',
+                  ),
                   validator: (val) =>
                       val!.length < 6 ? 'Password too short.' : null,
                   onSaved: (val) => _password = val!,
-                  obscureText: _obscureText,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 40),
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                      labelText: 'Re-type password',
-                      icon: const Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
-                          child: const Icon(Icons.lock))),
-                  validator: (val) =>
-                      val!.length < 6 ? 'Password too short.' : null,
-                  onSaved: (val) => _password = val!,
-                  obscureText: _obscureText,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Forgot password?',
+                    style: GoogleFonts.poppins(
+                        fontSize: 14, fontWeight: FontWeight.w400),
+                  ),
+                  SizedBox(
+                    width: 4,
+                  ),
+                  TextButton(
+                    child: Text(
+                      'Get help signing in.',
+                      style: GoogleFonts.poppins(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xff0B4E90)),
+                    ),
+                    onPressed: () {},
+                  ),
+                ],
               ),
               Spacer(),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  width: 220,
-                  height: 51,
-                  decoration: BoxDecoration(
-                      color: Color(0xffCFE3FC),
-                      borderRadius: BorderRadius.all(Radius.circular(30))),
-                  child: Center(
-                    child: Text(
-                      'Register',
-                      style: GoogleFonts.poppins(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff157FFB)),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 81),
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    width: 220,
+                    height: 51,
+                    decoration: BoxDecoration(
+                        color: Color(0xffCFE3FC),
+                        borderRadius: BorderRadius.all(Radius.circular(30))),
+                    child: Center(
+                      child: Text(
+                        'Login',
+                        style: GoogleFonts.poppins(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff0B4E90)),
+                      ),
                     ),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 42),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Already have an account?',
-                      style: GoogleFonts.poppins(
-                          fontSize: 16, fontWeight: FontWeight.w400),
-                    ),
-                    SizedBox(
-                      width: 4,
-                    ),
-                    TextButton(
-                      child: Text(
-                        'Login',
-                        style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xff157FFB)),
-                      ),
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-              )
             ],
           ),
         ),
