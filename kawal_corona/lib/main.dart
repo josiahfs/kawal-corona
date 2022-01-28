@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kawal_corona/pages/home.dart';
 import 'package:kawal_corona/pages/login_screen.dart';
-import 'package:kawal_corona/pages/splash_screen.dart';
+import 'package:kawal_corona/pages/goto_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Kawal Corona',
-      home: SplashScreen(),
+      home: HomeScreen(),
     );
   }
 }

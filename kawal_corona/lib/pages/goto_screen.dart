@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kawal_corona/pages/register_screen.dart';
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class GotoScreen extends StatelessWidget {
+  const GotoScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
