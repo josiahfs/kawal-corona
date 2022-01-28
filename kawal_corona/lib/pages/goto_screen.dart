@@ -50,7 +50,7 @@ class GotoScreen extends StatelessWidget {
                       children: [
                         Text(
                           'Be aware',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.roboto(
                             fontSize: 30,
                             fontWeight: FontWeight.w400,
                             color: Color(0xff142237),
@@ -58,7 +58,7 @@ class GotoScreen extends StatelessWidget {
                         ),
                         Text(
                           'Stay healty',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.roboto(
                             fontSize: 30,
                             fontWeight: FontWeight.w400,
                             color: Color(0xff142237),
@@ -69,7 +69,7 @@ class GotoScreen extends StatelessWidget {
                         ),
                         Text(
                           'Welcome to COVID-19 information portal.',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.roboto(
                               fontSize: 16, fontWeight: FontWeight.w400),
                         ),
                         Spacer(),
@@ -82,7 +82,7 @@ class GotoScreen extends StatelessWidget {
                             children: [
                               Text(
                                 'GET STARTED',
-                                style: GoogleFonts.poppins(
+                                style: GoogleFonts.roboto(
                                     fontWeight: FontWeight.w600),
                               ),
                               SizedBox(

@@ -51,7 +51,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               Text(
                 'Kawal Corona',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.roboto(
                     fontSize: 30, fontWeight: FontWeight.w900),
               ),
               SizedBox(
@@ -59,7 +59,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               Text(
                 'Register',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.roboto(
                     fontSize: 24,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff157FFB)),
@@ -69,7 +69,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               Text(
                 'Register to be aware with COVID - 19',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.roboto(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                 ),
@@ -131,7 +131,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   child: Center(
                     child: Text(
                       'Register',
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.roboto(
                           fontSize: 20,
                           fontWeight: FontWeight.w400,
                           color: Color(0xffCFE3FC)),
@@ -146,7 +146,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     Text(
                       'Already have an account?',
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.roboto(
                           fontSize: 16, fontWeight: FontWeight.w400),
                     ),
                     SizedBox(
@@ -155,7 +155,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     TextButton(
                       child: Text(
                         'Login',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.roboto(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                             color: Color(0xff0B4E90)),

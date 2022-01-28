@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Text(
                 'Kawal Corona',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.roboto(
                     fontSize: 30, fontWeight: FontWeight.w900),
               ),
               SizedBox(
@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Text(
                 'Login',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.roboto(
                     fontSize: 24,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff157FFB)),
@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Text(
                 'Register to be aware with COVID - 19',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.roboto(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                 ),
@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Text(
                     'Forgot password?',
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.roboto(
                         fontSize: 14, fontWeight: FontWeight.w400),
                   ),
                   SizedBox(
@@ -106,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextButton(
                     child: Text(
                       'Get help signing in.',
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.roboto(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                           color: Color(0xff0B4E90)),
@@ -129,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Center(
                       child: Text(
                         'Login',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.roboto(
                             fontSize: 20,
                             fontWeight: FontWeight.w400,
                             color: Color(0xffCFE3FC)),
