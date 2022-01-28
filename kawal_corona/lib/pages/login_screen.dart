@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kawal_corona/controller/authentication_controller.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -20,6 +21,9 @@ class _LoginScreenState extends State<LoginScreen> {
       _obscureText = !_obscureText;
     });
   }
+
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 9,
               ),
               Text(
-                'Register to be aware with COVID - 19',
+                'Login to be aware with COVID - 19',
                 style: GoogleFonts.roboto(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
@@ -69,14 +73,16 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: TextFormField(
+                  controller: emailController,
                   decoration: const InputDecoration(
-                    labelText: 'Username or email',
+                    labelText: 'Email',
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: TextFormField(
+                  controller: passwordController,
                   obscureText: _obscureText,
                   decoration: InputDecoration(
                     suffixIcon: InkWell(
@@ -118,8 +124,11 @@ class _LoginScreenState extends State<LoginScreen> {
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(bottom: 81),
-                child: InkWell(
-                  onTap: () {},
+                child: GestureDetector(
+                  onTap: () {
+                    AuthController.instance.login(emailController.text.trim(),
+                        passwordController.text.trim());
+                  },
                   child: Container(
                     width: 220,
                     height: 51,

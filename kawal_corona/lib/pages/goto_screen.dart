@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kawal_corona/pages/register_screen.dart';
+import 'package:get/get.dart';
 
 class GotoScreen extends StatelessWidget {
   const GotoScreen({Key? key}) : super(key: key);
@@ -95,11 +96,7 @@ class GotoScreen extends StatelessWidget {
                                   icon: Image.asset(
                                       'assets/images/splash_next.png'),
                                   onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                RegisterScreen()));
+                                    Get.to(RegisterScreen());
                                   },
                                 ),
                               )

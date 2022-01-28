@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "38210506162",
+    "project_id": "kawal-corona-auth",
+    "storage_bucket": "kawal-corona-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38210506162:android:7946b3dfaeb5e1002de8ab",
+        "android_client_info": {
+          "package_name": "com.example.kawal_corona"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38210506162-3a07sfrno7qa5pd0ip7gvn8dvvgho838.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoLWMXQgeY6zbjIOh5tafq8Mp5dScqdsE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38210506162-3a07sfrno7qa5pd0ip7gvn8dvvgho838.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

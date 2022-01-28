@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kawal_corona/controller/authentication_controller.dart';
 import 'package:kawal_corona/pages/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -29,6 +31,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
       _obscureText2 = !_obscureText2;
     });
   }
+
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -78,14 +83,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: TextFormField(
+                  controller: emailController,
                   decoration: const InputDecoration(
-                    labelText: 'Username or email',
+                    labelText: 'Email',
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: TextFormField(
+                  controller: passwordController,
                   obscureText: _obscureText,
                   decoration: InputDecoration(
                     suffixIcon: InkWell(
@@ -120,8 +127,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
               Spacer(),
-              InkWell(
-                onTap: () {},
+              GestureDetector(
+                onTap: () {
+                  AuthController.instance.register(emailController.text.trim(),
+                      passwordController.text.trim());
+                },
                 child: Container(
                   width: 220,
                   height: 51,
@@ -161,11 +171,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             color: Color(0xff0B4E90)),
                       ),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginScreen(),
-                            ));
+                        Get.to(LoginScreen());
                       },
                     ),
                   ],
