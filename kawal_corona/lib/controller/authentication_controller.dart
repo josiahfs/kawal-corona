@@ -19,9 +19,9 @@ class AuthController extends GetxController {
     ever(_user, _initialScreen);
   }
 
-  _initialScreen(User? user) {
+  _initialScreen(User? user) async {
     if (user == null) {
-      Get.offAll(() => GotoScreen());
+      await Get.offAll(() => GotoScreen());
     } else {
       Get.offAll(() => NavigationPage());
     }

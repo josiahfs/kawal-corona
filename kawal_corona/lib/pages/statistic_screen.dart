@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kawal_corona/widgets/stats_card.dart';
+import 'package:kawal_corona/widgets/stats_grid.dart';
+import 'package:http/http.dart' as http;
 
 class StatisticScreen extends StatefulWidget {
   const StatisticScreen({Key? key}) : super(key: key);
@@ -12,6 +15,7 @@ class _StatisticScreenState extends State<StatisticScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -41,6 +45,42 @@ class _StatisticScreenState extends State<StatisticScreen> {
               ),
               SizedBox(
                 height: 30,
+              ),
+              Row(
+                children: [
+                  Text(
+                    ' COVID -19 Global',
+                    style: GoogleFonts.roboto(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 23,
+              ),
+              StatsGrid(),
+              SizedBox(
+                height: 39,
+              ),
+              Row(
+                children: [
+                  Text(
+                    ' COVID -19 Indonesia',
+                    style: GoogleFonts.roboto(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 23,
+              ),
+              StatsCard(),
+              SizedBox(
+                height: 44,
               ),
               Container(
                 width: 373,
@@ -129,129 +169,6 @@ class _StatisticScreenState extends State<StatisticScreen> {
                     ],
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              RichText(
-                text: TextSpan(
-                  style: GoogleFonts.roboto(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                  children: [
-                    TextSpan(text: ' Major Symptoms of '),
-                    TextSpan(
-                        text: 'COVID - 19',
-                        style: TextStyle(
-                          color: Color(0xffEC0101),
-                        ))
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 23,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Image.asset(
-                    'assets/images/headache.png',
-                    width: 89,
-                  ),
-                  Image.asset(
-                    'assets/images/cough.png',
-                    width: 89,
-                  ),
-                  Image.asset(
-                    'assets/images/fever.png',
-                    width: 89,
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 28,
-              ),
-              Text(
-                ' Preventions',
-                style: GoogleFonts.roboto(
-                    fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 23,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
-                    children: [
-                      Image.asset(
-                        'assets/images/wash.png',
-                        width: 71,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        'Wash Hands',
-                        style: GoogleFonts.roboto(
-                            fontSize: 11, fontWeight: FontWeight.w500),
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Image.asset(
-                        'assets/images/mask.png',
-                        width: 71,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        'Wear Mask',
-                        style: GoogleFonts.roboto(
-                            fontSize: 11, fontWeight: FontWeight.w500),
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Image.asset(
-                        'assets/images/clean.png',
-                        width: 71,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        'Clean Disinfect',
-                        style: GoogleFonts.roboto(
-                            fontSize: 11, fontWeight: FontWeight.w500),
-                      )
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 28,
-              ),
-              Center(
-                child: Text(
-                  'COVID - 19 Screening',
-                  style: GoogleFonts.roboto(
-                      fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              InkWell(
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 7),
-                  child: Image.asset('assets/images/screening.png'),
-                ),
-                onTap: () {},
               ),
               SizedBox(
                 height: 26,
