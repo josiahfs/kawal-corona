@@ -22,7 +22,7 @@ class StatsGrid extends StatelessWidget {
             child: Row(
               children: [
                 _buildStatCard(
-                    'Affected', affectedCount.toString(), Colors.deepPurple),
+                    'Affected', affectedCount.toString(), Color(0xff6045E2)),
                 _buildStatCard(
                     'Active', activeCount.toString(), Color(0xff157FFB)),
               ],
@@ -32,9 +32,9 @@ class StatsGrid extends StatelessWidget {
             child: Row(
               children: [
                 _buildStatCard(
-                    'Recovered', recoveredCount.toString(), Colors.green),
+                    'Recovered', recoveredCount.toString(), Color(0xff2ECC71)),
                 _buildStatCard(
-                    'Death', deathCount.toString(), Colors.red.shade600),
+                    'Death', deathCount.toString(), Color(0xffEC0101)),
                 _buildStatCard(
                     'Serious', criticalCount.toString(), Color(0xffF7C139)),
               ],

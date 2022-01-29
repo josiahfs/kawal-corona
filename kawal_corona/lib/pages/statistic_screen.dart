@@ -24,8 +24,18 @@ class _StatisticScreenState extends State<StatisticScreen> {
     });
   }
 
+  Map? indonesiaData;
+  fetchIndonesiaData() async {
+    http.Response response = await http.get(Uri.parse(
+        'https://disease.sh/v3/covid-19/countries/Indonesia?strict=true'));
+    setState(() {
+      indonesiaData = json.decode(response.body);
+    });
+  }
+
   @override
   void initState() {
+    fetchIndonesiaData();
     fetchGlobalData();
     super.initState;
   }
@@ -67,7 +77,7 @@ class _StatisticScreenState extends State<StatisticScreen> {
               Row(
                 children: [
                   Text(
-                    ' COVID -19 Global',
+                    ' Global Cases Today',
                     style: GoogleFonts.roboto(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -91,7 +101,7 @@ class _StatisticScreenState extends State<StatisticScreen> {
               Row(
                 children: [
                   Text(
-                    ' COVID -19 Indonesia',
+                    ' Indonesia\'s Total Cases',
                     style: GoogleFonts.roboto(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -102,7 +112,13 @@ class _StatisticScreenState extends State<StatisticScreen> {
               SizedBox(
                 height: 23,
               ),
-              StatsCard(),
+              globalData == null
+                  ? Center(
+                      child: Container(
+                          width: 100,
+                          height: 100,
+                          child: CircularProgressIndicator()))
+                  : StatsCard(indonesiaData: indonesiaData!),
               SizedBox(
                 height: 44,
               ),
