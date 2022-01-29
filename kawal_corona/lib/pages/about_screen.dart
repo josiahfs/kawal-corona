@@ -8,7 +8,6 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SafeArea(
         child: ListView(
           children: [
@@ -92,7 +91,9 @@ class AboutScreen extends StatelessWidget {
                             Text(
                               'Flutter',
                               style: GoogleFonts.roboto(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
                             )
                           ],
                         ),
@@ -106,7 +107,9 @@ class AboutScreen extends StatelessWidget {
                             Text(
                               'Figma',
                               style: GoogleFonts.roboto(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
                             )
                           ],
                         ),
@@ -120,7 +123,9 @@ class AboutScreen extends StatelessWidget {
                             Text(
                               'Git',
                               style: GoogleFonts.roboto(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
                             )
                           ],
                         ),

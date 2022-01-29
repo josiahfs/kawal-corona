@@ -69,7 +69,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              Spacer(),
+              SizedBox(
+                height: 60,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: TextFormField(

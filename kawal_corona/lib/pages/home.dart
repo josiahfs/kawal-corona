@@ -2,13 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+class ThemeController extends GetxController {
+  bool isDarkMode = true;
+
+  void toggleDarkMode() {
+    isDarkMode = !isDarkMode;
+    if (isDarkMode) {
+      Get.changeTheme(ThemeData.light());
+    } else {
+      Get.changeTheme(ThemeData.dark());
+    }
+    update();
+  }
+}
+
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Get.put(ThemeController());
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -36,10 +50,16 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     Spacer(),
-                    IconButton(
-                      icon: Icon(Icons.notifications_none_outlined),
-                      onPressed: () {},
-                    ),
+                    GetBuilder<ThemeController>(
+                      builder: (controller) => IconButton(
+                        icon: Icon(controller.isDarkMode
+                            ? Icons.dark_mode
+                            : Icons.light_mode),
+                        onPressed: () {
+                          controller.toggleDarkMode();
+                        },
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -137,21 +157,23 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              RichText(
-                text: TextSpan(
-                  style: GoogleFonts.roboto(
+              Row(
+                children: [
+                  Text(
+                    ' COVID - 19 ',
+                    style: GoogleFonts.roboto(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xffEC0101)),
+                  ),
+                  Text(
+                    'Symptoms',
+                    style: GoogleFonts.roboto(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                  children: [
-                    TextSpan(text: ' Major Symptoms of '),
-                    TextSpan(
-                        text: 'COVID - 19',
-                        style: TextStyle(
-                          color: Color(0xffEC0101),
-                        ))
-                  ],
-                ),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 23,

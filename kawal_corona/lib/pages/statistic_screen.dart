@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kawal_corona/widgets/stats_card.dart';
 import 'package:kawal_corona/widgets/stats_grid.dart';
@@ -43,7 +44,6 @@ class _StatisticScreenState extends State<StatisticScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -64,10 +64,6 @@ class _StatisticScreenState extends State<StatisticScreen> {
                       ),
                     ),
                     Spacer(),
-                    IconButton(
-                      icon: Icon(Icons.notifications_none_outlined),
-                      onPressed: () {},
-                    ),
                   ],
                 ),
               ),
@@ -79,9 +75,9 @@ class _StatisticScreenState extends State<StatisticScreen> {
                   Text(
                     ' Global Cases Today',
                     style: GoogleFonts.roboto(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
@@ -103,9 +99,9 @@ class _StatisticScreenState extends State<StatisticScreen> {
                   Text(
                     ' Indonesia\'s Total Cases',
                     style: GoogleFonts.roboto(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),

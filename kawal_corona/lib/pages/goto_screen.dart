@@ -6,8 +6,8 @@ import 'package:kawal_corona/pages/register_screen.dart';
 import 'package:get/get.dart';
 
 class GotoScreen extends StatelessWidget {
-  const GotoScreen({Key? key}) : super(key: key);
-
+  GotoScreen({Key? key, this.color}) : super(key: key);
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,10 +40,11 @@ class GotoScreen extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.4,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(35),
-                      ),
-                      color: Colors.white),
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(35),
+                    ),
+                    color: Colors.white,
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.only(top: 24, left: 35),
                     child: Column(
@@ -71,7 +72,10 @@ class GotoScreen extends StatelessWidget {
                         Text(
                           'Welcome to COVID-19 information portal.',
                           style: GoogleFonts.roboto(
-                              fontSize: 16, fontWeight: FontWeight.w400),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff142237),
+                          ),
                         ),
                         Spacer(),
                         Padding(
