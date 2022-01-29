@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class StatsGrid extends StatelessWidget {
-  const StatsGrid({Key? key}) : super(key: key);
+  StatsGrid({Key? key, required this.globalData}) : super(key: key);
+  final Map globalData;
+  NumberFormat myFormat = NumberFormat.decimalPattern('en_us');
 
   @override
   Widget build(BuildContext context) {
+    String affectedCount = myFormat.format(globalData['todayCases']);
+    String activeCount = myFormat.format(globalData['active']);
+    String recoveredCount = myFormat.format(globalData['todayRecovered']);
+    String deathCount = myFormat.format(globalData['todayDeaths']);
+    String criticalCount = myFormat.format(globalData['critical']);
     return Container(
       height: MediaQuery.of(context).size.height * 0.30,
       child: Column(
@@ -13,17 +21,22 @@ class StatsGrid extends StatelessWidget {
           Flexible(
             child: Row(
               children: [
-                _buildStatCard('Affected', '336.851', Colors.deepPurple),
-                _buildStatCard('Death', '9.620', Colors.red.shade600),
+                _buildStatCard(
+                    'Affected', affectedCount.toString(), Colors.deepPurple),
+                _buildStatCard(
+                    'Active', activeCount.toString(), Color(0xff157FFB)),
               ],
             ),
           ),
           Flexible(
             child: Row(
               children: [
-                _buildStatCard('Recovered', '17.997', Colors.green),
-                _buildStatCard('Active', '301.251', Color(0xff157FFB)),
-                _buildStatCard('Serious', '8.702', Color(0xffF7C139)),
+                _buildStatCard(
+                    'Recovered', recoveredCount.toString(), Colors.green),
+                _buildStatCard(
+                    'Death', deathCount.toString(), Colors.red.shade600),
+                _buildStatCard(
+                    'Serious', criticalCount.toString(), Color(0xffF7C139)),
               ],
             ),
           ),
@@ -56,7 +69,7 @@ class StatsGrid extends StatelessWidget {
               count,
               style: GoogleFonts.roboto(
                   color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold),
             )
           ],

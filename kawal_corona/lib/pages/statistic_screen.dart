@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kawal_corona/widgets/stats_card.dart';
@@ -5,13 +8,28 @@ import 'package:kawal_corona/widgets/stats_grid.dart';
 import 'package:http/http.dart' as http;
 
 class StatisticScreen extends StatefulWidget {
-  const StatisticScreen({Key? key}) : super(key: key);
+  StatisticScreen({Key? key}) : super(key: key);
 
   @override
   State<StatisticScreen> createState() => _StatisticScreenState();
 }
 
 class _StatisticScreenState extends State<StatisticScreen> {
+  Map? globalData;
+  fetchGlobalData() async {
+    http.Response response =
+        await http.get(Uri.parse('https://disease.sh/v3/covid-19/all'));
+    setState(() {
+      globalData = json.decode(response.body);
+    });
+  }
+
+  @override
+  void initState() {
+    fetchGlobalData();
+    super.initState;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +78,13 @@ class _StatisticScreenState extends State<StatisticScreen> {
               SizedBox(
                 height: 23,
               ),
-              StatsGrid(),
+              globalData == null
+                  ? Center(
+                      child: Container(
+                          width: 100,
+                          height: 100,
+                          child: CircularProgressIndicator()))
+                  : StatsGrid(globalData: globalData!),
               SizedBox(
                 height: 39,
               ),
