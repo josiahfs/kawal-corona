@@ -27,129 +27,132 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 42),
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  width: 90,
-                  height: 90,
-                ),
-              ),
-              SizedBox(
-                height: 9,
-              ),
-              Text(
-                'Kawal Corona',
-                style: GoogleFonts.roboto(
-                    fontSize: 30, fontWeight: FontWeight.w900),
-              ),
-              SizedBox(
-                height: 43,
-              ),
-              Text(
-                'Login',
-                style: GoogleFonts.roboto(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xff157FFB)),
-              ),
-              SizedBox(
-                height: 9,
-              ),
-              Text(
-                'Login to be aware with COVID - 19',
-                style: GoogleFonts.roboto(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              SizedBox(
-                height: 60,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: TextFormField(
-                  controller: emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: SafeArea(
+          child: Center(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 42),
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    width: 90,
+                    height: 90,
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: TextFormField(
-                  controller: passwordController,
-                  obscureText: _obscureText,
-                  decoration: InputDecoration(
-                    suffixIcon: InkWell(
-                      onTap: _toggle,
-                      child: Icon(_obscureText
-                          ? Icons.visibility
-                          : Icons.visibility_off),
+                SizedBox(
+                  height: 9,
+                ),
+                Text(
+                  'Kawal Corona',
+                  style: GoogleFonts.roboto(
+                      fontSize: 30, fontWeight: FontWeight.w900),
+                ),
+                SizedBox(
+                  height: 43,
+                ),
+                Text(
+                  'Login',
+                  style: GoogleFonts.roboto(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xff157FFB)),
+                ),
+                SizedBox(
+                  height: 9,
+                ),
+                Text(
+                  'Login to be aware with COVID - 19',
+                  style: GoogleFonts.roboto(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                SizedBox(
+                  height: 60,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: TextFormField(
+                    controller: emailController,
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
                     ),
-                    labelText: 'Password',
                   ),
-                  validator: (val) =>
-                      val!.length < 6 ? 'Password too short.' : null,
-                  onSaved: (val) => _password = val!,
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Forgot password?',
-                    style: GoogleFonts.roboto(
-                        fontSize: 14, fontWeight: FontWeight.w400),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: TextFormField(
+                    controller: passwordController,
+                    obscureText: _obscureText,
+                    decoration: InputDecoration(
+                      suffixIcon: InkWell(
+                        onTap: _toggle,
+                        child: Icon(_obscureText
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                      ),
+                      labelText: 'Password',
+                    ),
+                    validator: (val) =>
+                        val!.length < 6 ? 'Password too short.' : null,
+                    onSaved: (val) => _password = val!,
                   ),
-                  SizedBox(
-                    width: 4,
-                  ),
-                  TextButton(
-                    child: Text(
-                      'Get help signing in.',
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Forgot password?',
                       style: GoogleFonts.roboto(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff0B4E90)),
+                          fontSize: 14, fontWeight: FontWeight.w400),
                     ),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 81),
-                child: GestureDetector(
-                  onTap: () {
-                    AuthController.instance.login(emailController.text.trim(),
-                        passwordController.text.trim());
-                  },
-                  child: Container(
-                    width: 220,
-                    height: 51,
-                    decoration: BoxDecoration(
-                        color: Color(0xff157FFB),
-                        borderRadius: BorderRadius.all(Radius.circular(30))),
-                    child: Center(
+                    SizedBox(
+                      width: 4,
+                    ),
+                    TextButton(
                       child: Text(
-                        'Login',
+                        'Get help signing in.',
                         style: GoogleFonts.roboto(
-                            fontSize: 20,
+                            fontSize: 14,
                             fontWeight: FontWeight.w400,
-                            color: Color(0xffCFE3FC)),
+                            color: Color(0xff0B4E90)),
+                      ),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+                Spacer(),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 81),
+                  child: GestureDetector(
+                    onTap: () {
+                      AuthController.instance.login(emailController.text.trim(),
+                          passwordController.text.trim());
+                    },
+                    child: Container(
+                      width: 220,
+                      height: 51,
+                      decoration: BoxDecoration(
+                          color: Color(0xff157FFB),
+                          borderRadius: BorderRadius.all(Radius.circular(30))),
+                      child: Center(
+                        child: Text(
+                          'Login',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                              color: Color(0xffCFE3FC)),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

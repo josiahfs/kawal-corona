@@ -27,8 +27,8 @@ class _StatisticScreenState extends State<StatisticScreen> {
 
   Map? indonesiaData;
   fetchIndonesiaData() async {
-    http.Response response = await http.get(Uri.parse(
-        'https://disease.sh/v3/covid-19/countries/Indonesia?strict=true'));
+    http.Response response = await http
+        .get(Uri.parse('https://disease.sh/v3/covid-19/countries/Indonesia'));
     setState(() {
       indonesiaData = json.decode(response.body);
     });
