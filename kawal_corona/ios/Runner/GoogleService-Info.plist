@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>38210506162-qrg41hssgiesppe559ob6c5f1eau20cp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.38210506162-qrg41hssgiesppe559ob6c5f1eau20cp</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBiebPaStHaKY8cUZzepGTB0fg2xHUAOZ4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>38210506162</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.getx.app.kawalCorona</string>
+	<key>PROJECT_ID</key>
+	<string>kawal-corona-auth</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kawal-corona-auth.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:38210506162:ios:ae7b0b5a681472ee2de8ab</string>
+</dict>
+</plist>
